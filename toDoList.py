@@ -11,22 +11,41 @@
 # confidence and proficiency in Python programming.
 
 
+def select_user():
+    print('Welcome to your to do list manager! Are you a new or existing user?')
+    user_selection = input('1: New \n2: Existing \nSelect (1 or 2): ').lower()
+    if user_selection not in ('1', '2'): #Make sure the user selected a valid option
+        print('\nInvalid selection, please try again.\n')
+        return select_user()
+
+    confirmation_message = {
+        '1': 'You have selected new user. Is this correct? (y/n)',
+        '2': 'You have selected existing user. Is this correct? (y/n)'
+    }
+    confirmation = input(confirmation_message[user_selection]).lower()
+    if confirmation == 'y':
+        return 'ok'
+    else:
+        print ('\nAs you said no, we will take you back to the homepage\n')
+        return select_user()
+print(select_user())
+
 def categorize_tasks():
     print ('This is the function that will let users sort their different tasks into categories')
     #For example: Sports, School, Coding, Homework/AfterSchool
 
-def create_task():
+def createTask():
     print ('Function to create tasks')
     #In this function, include a feature that asks how important is each task. There will be three levels:
     #Urgent: Tasks that need immediate attention or must be done as soon as possible.
     #Priority: Tasks that are important but not urgent, requiring attention in the near future.
     #Casual: Tasks that are less urgent or can be done at leisure when there is ample time available.
 
-def remove_task():
-    #Function to remove tasks
+def deleteTask():
+    print ('Function to remove tasks')
 
-def modify_tasks():
-    #Function to modify tasks
+def modify_task():
+    print ('Function to modify tasks')
 
-def filter_tasks():
-    #function to filter tasks by search
+def markCompleted():
+    print ('Lets users mark their tasks as completed')
